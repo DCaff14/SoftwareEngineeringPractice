@@ -23,16 +23,15 @@ class BankAccountTest {
 
     @Test
     /**
-     * A valid email consists of a local part, and a domain part separated by an @.
-     * The local part can be alphanumeric and include the special characters !#$%&'*+-/=?^_`{|}~
-     * The domain has to be alphanumeric and may contain a hyphen
+     * A valid email consists of a local part, and a domain part separated by an @ and
+     * only one @
      */
     void isEmailValidTest(){
         assertTrue(BankAccount.isEmailValid( "a@b.com"));
         assertFalse( BankAccount.isEmailValid(""));
         assertFalse(BankAccount.isEmailValid("abc"));
         assertFalse(BankAccount.isEmailValid("gmail.com"));
-        assertFalse(BankAccount.isEmailValid("abc()@gmail.com"));
+        assertFalse(BankAccount.isEmailValid("a@b@c.com"));
     }
 
     @Test
