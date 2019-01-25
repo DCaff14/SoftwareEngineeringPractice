@@ -36,6 +36,9 @@ public class BankAccount {
 
 
     public static boolean isEmailValid(String email){
+        if (email.length() < 3) {
+            return false;
+        }
         int numOfAts = 0;
         for (int i = 0; i < email.length(); i++) {
             if (email.charAt(i) == '@') {

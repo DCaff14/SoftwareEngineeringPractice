@@ -23,8 +23,8 @@ class BankAccountTest {
 
     @Test
     /**
-     * A valid email consists of a local part, and a domain part separated by an @ and
-     * only one @
+     * A valid email consists of a local part of minimum length 1, and a domain part of minimum length 1
+     * separated by an one and only one @
      */
     void isEmailValidTest(){
         assertTrue(BankAccount.isEmailValid( "a@b.com"));
@@ -32,6 +32,8 @@ class BankAccountTest {
         assertFalse(BankAccount.isEmailValid("abc"));
         assertFalse(BankAccount.isEmailValid("gmail.com"));
         assertFalse(BankAccount.isEmailValid("a@b@c.com"));
+        assertTrue(BankAccount.isEmailValid("a@b"));
+        assertFalse(BankAccount.isEmailValid("a@"));
     }
 
     @Test
