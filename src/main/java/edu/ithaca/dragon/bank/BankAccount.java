@@ -34,8 +34,8 @@ public class BankAccount {
         if (amount > balance) {
             throw new InsufficientFundsException("Withdraw not made; Insufficient funds");
         }
-        if (amount < 0) {
-            throw new IllegalArgumentException("Amount must be greater than 0");
+        if (!isAmountValid(amount)) {
+            throw new IllegalArgumentException("Amount must be greater than 0 and have 2 or fewer decimal places");
         }
         balance -= amount;
 
